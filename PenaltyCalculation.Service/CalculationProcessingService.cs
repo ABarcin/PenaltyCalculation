@@ -30,5 +30,6 @@ namespace PenaltyCalculation.Service
 
             return _context.OffDays.Where(x => x.CountryId == countryId).ToList();
         }
+      
     }
 }

@@ -26,6 +26,10 @@ namespace PenaltyCalculation
             services.AddDbContext<DbObjectContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddScoped<IProcessingService, CalculationProcessingService>();
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo { Title = "My Api", Version = "v1" });
+            });
             services.AddMvc();
             services.AddRazorPages();
         }
@@ -49,6 +53,11 @@ namespace PenaltyCalculation
             app.UseRouting();
 
             app.UseAuthorization();
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "MY API V1");
+            });
 
             app.UseEndpoints(endpoints =>
             {

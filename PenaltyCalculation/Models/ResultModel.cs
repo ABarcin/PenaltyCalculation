@@ -15,7 +15,7 @@ namespace PenaltyCalculation.Models
         public string Message { get; set; }
         public decimal CountryCurrencyValue { get; set; }
         public List<DateTime> PenaltyDate { get; set; }
-        public int Counter { get; set; }
     }
 }
+
 
