@@ -1,0 +1,28 @@
+﻿@model ResultModel
+@{
+    ViewData["Title"] = "CalculatePenalty";
+}
+
+
+<div class="">
+    <h2>Penalty Calculation Solution</h2>
+    <p>@Model.CountryName</p>
+    <p>1 Dolar = @Model.CountryCurrencyValue @Model.CountryCurrencyName.</p>
+    <p>@Model.Message @Model.PenaltyPrize @Model.CountryCurrencyName </p>
+    @if (Model.PenaltyDate != null)
+    {
+        <p>Dates</p>
+        <select>
+            @foreach (var item in Model.PenaltyDate)
+            {
+                <option>
+                    @item.Date.ToString("MMMM dd, yyyy")
+                </option>
+
+            }
+        </select>
+    }
+
+
+
+</div>
