@@ -1,0 +1,14 @@
+﻿@model PublicHolidayModel
+@{
+    ViewData["Title"] = "Public Holidays";
+}
+<form asp-action="Holiday">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div>
+        @foreach (var item in Model.PublicHolidays)
+        {
+            @item.Date.ToString("MMMM dd, yyyy")
+            <br />
+        }
+    </div>
+</form>
